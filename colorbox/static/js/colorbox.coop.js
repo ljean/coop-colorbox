@@ -10,6 +10,7 @@ $(function() {
             options[html].call(this);
         } else {
             $.colorbox({
+                top: 100,
                 html:html,
                 title : '...',
                 onComplete : _colorboxify_form
@@ -28,6 +29,7 @@ $(function() {
     $.fn.colorboxify = function(options) {
         $("a.colorbox-form").live('click', function () {
             $.colorbox({
+                top: 100,
                 href : $(this).attr('href'),
                 title : '...',  
                 onComplete : function(){
@@ -44,6 +46,7 @@ $(function() {
             resetForm: true,
             success: function (html) {
               $.colorbox({
+                top: 100,
                 html:html,
                 title : '...',
                 onComplete : function(){
