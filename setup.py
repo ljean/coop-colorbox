@@ -10,12 +10,8 @@ except ImportError:
 
 VERSION = __import__('colorbox').__version__
 
-import os
-def read(fname):
-    return open(os.path.join(os.path.dirname(__file__), fname)).read()
-
 setup(
-    name ='coop-colorbox',
+    name ='apidev-coop_colorbox',
     version = VERSION,
     description ='Manage lightboxes within coop-cms',
     long_description = open('README.rst').read(),
@@ -24,8 +20,8 @@ setup(
     author = 'Luc Jean',
     author_email = 'ljean@apidev.fr',
     license ='BSD',
-    url = "https://github.com/quinode/coop-colorbox/",
-    download_url = "https://github.com/quinode/coop-colorbox/tarball/master",
+    url = "https://github.com/ljean/coop-colorbox/",
+    download_url = "https://github.com/ljean/coop-colorbox/tarball/master",
     zip_safe = False,
     classifiers = [
         'Development Status :: 4 - Beta',

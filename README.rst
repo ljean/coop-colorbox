@@ -1,4 +1,4 @@
-coop-bar, configurable toolbar
+coop-colorbox, make easy to use jquery.colorbox in a django app
 ===============================================
 
 
@@ -6,4 +6,4 @@ coop-bar, configurable toolbar
 License
 =======
 
-coop-colorbox uses the same license as Django (BSD).
+coop-colorbox uses the BSD license see license.txt
