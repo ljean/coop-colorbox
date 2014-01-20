@@ -9,10 +9,10 @@ def popup_redirect(view_func):
         try:
             response = view_func(request, *args, **kwargs)
         except:
-            logger.exception("exception inn popup")
+            logger.exception("exception in popup")
             raise
         if response.status_code == 302:
-            script = '<script>$.colorbox.close(); window.location="%s";</script>' % response['Location']
+            script = u'<script>$.colorbox.close(); window.location="%s";</script>' % response['Location']
             return HttpResponse(script)
         else:
             return response

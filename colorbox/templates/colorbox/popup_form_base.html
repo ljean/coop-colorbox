@@ -1,5 +1,4 @@
-{% load i18n %}
-<html>
+<html>{% load i18n %}
 <head>
   <meta charset="utf-8">
   {{form.media}}
@@ -26,7 +25,7 @@
 </head>
 <body>
   <div class="main">
-  <form id="template-form" {% if form.is_multipart %}enctype="multipart/form-data"{% endif %} action="{% block form_url %}{% endblock %}" method="post">
+  <form role="form {% if form.is_multipart %}enctype="multipart/form-data"{% endif %}" class="colorbox-form" action="{% block form_url %}{% endblock %}" method="post">
   {% csrf_token %}
   {% block form_fields %}
   <table class="popup_form">

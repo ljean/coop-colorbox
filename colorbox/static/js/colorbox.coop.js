@@ -3,7 +3,6 @@ $(function() {
     var _process_form_result = function(html, options) {
         if (html.match(/^<script>.*<\/script>$/)) {
             $('body').append(html);
-            
         } else if (html === 'close_popup') {
             $.colorbox.close();
         } else if (options && options.hasOwnProperty(html)) {
@@ -19,7 +18,7 @@ $(function() {
     }
     
     var _colorboxify_form = function(options) {
-        $("form#template-form").ajaxForm({
+        $("form.colorbox-form").ajaxForm({
             success: function(html) {
                 _process_form_result(html, options);
             }
