@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseNotFound, Http404
+from django.core.exceptions import PermissionDenied
 import logging
 logger = logging.getLogger("colorbox")
 
@@ -8,12 +9,18 @@ def popup_redirect(view_func):
     def wrapper(request, *args, **kwargs):
         try:
             response = view_func(request, *args, **kwargs)
-        except:
-            logger.exception("exception in popup")
+        except Http404:
+            return HttpResponseNotFound()
+        except PermissionDenied:
+            return HttpResponseForbidden()    
+        except Exception, msg:
+            logger.exception(u"exception in popup: {0}".format(msg))
             raise
         if response.status_code == 302:
             script = u'<script>$.colorbox.close(); window.location="%s";</script>' % response['Location']
             return HttpResponse(script)
+        elif response.status_code != 200:
+            return HttpResponse(status_code=response.status_code)
         else:
             return response
     return wrapper
