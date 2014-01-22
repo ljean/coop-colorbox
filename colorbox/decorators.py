@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from django.http import HttpResponse, HttpResponseNotFound, Http404
+from django.http import HttpResponse, HttpResponseNotFound, Http404, HttpResponseForbidden
 from django.core.exceptions import PermissionDenied
 import logging
 logger = logging.getLogger("colorbox")
