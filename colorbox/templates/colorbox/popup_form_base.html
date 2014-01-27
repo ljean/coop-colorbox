@@ -25,20 +25,20 @@
 </head>
 <body>
   <div class="main">
-  <form role="form {% if form.is_multipart %}enctype="multipart/form-data"{% endif %}" class="colorbox-form" action="{% block form_url %}{% endblock %}" method="post">
-  {% csrf_token %}
-  {% block form_fields %}
-  <table class="popup_form">
-      {{form.as_table}}
-  </table>
-  {% endblock %}
-  <div class="popup_buttons">
-  {% block popup_buttons %}
-  <a href="" class="cancel_button">{% trans "Cancel" %}</a>
-  <input type="submit" value="{% block form_ok %}{% trans "Ok" %}{% endblock %}">
-  {% endblock %}
-  </div>
-  </form>
+    <form role="form" {% if form.is_multipart %}enctype="multipart/form-data"{% endif %} class="colorbox-form" action="{% block form_url %}{% endblock %}" method="post">
+      {% csrf_token %}
+      {% block form_fields %}
+      <table class="popup_form">
+          {{form.as_table}}
+      </table>
+      {% endblock %}
+      <div class="popup_buttons">
+      {% block popup_buttons %}
+      <a href="" class="cancel_button">{% trans "Cancel" %}</a>
+      <input type="submit" value="{% block form_ok %}{% trans "Ok" %}{% endblock %}" />
+      {% endblock %}
+      </div>
+    </form>
   </div>
 </body>
 </html>
