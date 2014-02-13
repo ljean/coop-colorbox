@@ -29,7 +29,7 @@ def popup_close(view_func):
     def wrapper(request, *args, **kwargs):
         response = view_func(request, *args, **kwargs)
         if not response:
-            script = '<script>$.colorbox.close();</script>'
+            script = '<script>$.colorbox.close(); window.location=window.location;</script>'
             response = HttpResponse(script)
         return response
     return wrapper
