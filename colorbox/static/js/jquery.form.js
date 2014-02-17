@@ -13,7 +13,7 @@
 // AMD support
 (function (factory) {
     "use strict";
-    if (typeof define === 'function' && define.amd) {
+    if (false && (typeof define === 'function' && define.amd)) { //patch LJ : break Aloha on Safari
         // using AMD; register as anon module
         define(['jquery'], factory);
     } else {
