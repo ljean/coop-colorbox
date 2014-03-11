@@ -10,7 +10,7 @@
       });
       $(document).bind('cbox_complete', function(){
 
-        var s = "{% block title %}{% endblock %}";
+        var s = "{% block title %}{{title}}{% endblock %}";
         while(true) {
           var so = s;
           s = so.replace("&#39;", "'");
@@ -25,7 +25,7 @@
 </head>
 <body>
   <div class="main">
-    <form role="form" {% if form.is_multipart %}enctype="multipart/form-data"{% endif %} class="colorbox-form" action="{% block form_url %}{% endblock %}" method="post">
+    <form role="form" {% if form.is_multipart %}enctype="multipart/form-data"{% endif %} class="colorbox-form" action="{% block form_url %}{{form_url}}{% endblock %}" method="post">
       {% csrf_token %}
       {% block form_fields %}
       <table class="popup_form">
