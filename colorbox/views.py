@@ -11,7 +11,7 @@ class PopupRedirectView(FormView):
     title = ""
     form_class = None
     success_url = ""
-    staff_only = True
+    staff_only = False
     
     def get_context_data(self, **kwargs):
         context = super(PopupRedirectView, self).get_context_data(**kwargs)
