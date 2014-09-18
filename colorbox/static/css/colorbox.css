@@ -50,6 +50,12 @@
     border-bottom: solid thin #ccc;
 }
 
+.popup_form tr td, .popup_form tr th{
+	padding: 0 5px;
+	padding-bottom: 10px;
+	vertical-align: top;
+}
+
 .popup_form td {
     border: none;
 }
