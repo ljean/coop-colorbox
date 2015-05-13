@@ -26,7 +26,7 @@ $(function() {
     }
     
     $.fn.colorboxify = function(options) {
-        $("a.colorbox-form").live('click', function () {
+        $(document).on('click', "a.colorbox-form", function () {
             $.colorbox({
                 top: 0,
                 href : $(this).attr('href'),
