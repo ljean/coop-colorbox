@@ -8,22 +8,24 @@ except ImportError:
     ez_setup.use_setuptools()
     from setuptools import setup, find_packages
 
+
 VERSION = __import__('colorbox').__version__
 
+
 setup(
-    name ='apidev-coop_colorbox',
-    version = VERSION,
-    description ='Manage lightboxes within coop-cms',
-    long_description = open('README.rst').read(),
-    packages = ['colorbox'],
-    include_package_data = True,
-    author = 'Luc Jean',
-    author_email = 'ljean@apidev.fr',
-    license ='BSD',
-    url = "https://github.com/ljean/coop-colorbox/",
-    download_url = "https://github.com/ljean/coop-colorbox/tarball/master",
-    zip_safe = False,
-    classifiers = [
+    name='apidev-coop_colorbox',
+    version=VERSION,
+    description='Manage lightboxes within coop-cms',
+    long_description=open('README.rst').read(),
+    packages=['colorbox'],
+    include_package_data=True,
+    author='Luc Jean',
+    author_email='ljean@apidev.fr',
+    license='BSD',
+    url="https://github.com/ljean/coop-colorbox/",
+    download_url="https://github.com/ljean/coop-colorbox/tarball/master",
+    zip_safe=False,
+    classifiers=[
         'Development Status :: 4 - Beta',
         'Environment :: Web Environment',
         'Intended Audience :: Developers',
@@ -37,4 +39,3 @@ setup(
         'Topic :: Internet :: WWW/HTTP :: WSGI :: Application',
     ],
 )
-

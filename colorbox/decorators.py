@@ -1,11 +1,16 @@
 # -*- coding: utf-8 -*-
+"""decorator for managing colorbox"""
+
+import logging
 
 from django.http import HttpResponse, HttpResponseNotFound, Http404, HttpResponseForbidden
 from django.core.exceptions import PermissionDenied
-import logging
+
 logger = logging.getLogger("colorbox")
 
+
 def popup_redirect(view_func):
+    """manage redirection : close the coorbox. Very useful for form-based views"""
     def wrapper(request, *args, **kwargs):
         try:
             response = view_func(request, *args, **kwargs)
@@ -25,7 +30,10 @@ def popup_redirect(view_func):
             return response
     return wrapper
 
+
 def popup_close(view_func):
+    """close the popup but don't leave the page"""
+
     def wrapper(request, *args, **kwargs):
         response = view_func(request, *args, **kwargs)
         if not response:
@@ -34,6 +42,8 @@ def popup_close(view_func):
         return response
     return wrapper
 
+
 class HttpResponseClosePopup(HttpResponse):
+    """A HttpResponse that can be returned in a 'popup_close' decorated view for closing the colorbox"""
     def __init__(self):
         super(HttpResponseClosePopup, self).__init__("close_popup")
