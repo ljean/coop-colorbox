@@ -22,7 +22,29 @@ def popup_redirect(view_func):
             logger.exception(u"exception in popup: {0}".format(msg))
             raise
         if response.status_code == 302:
-            script = u'<script>$.colorbox.close(); window.location="%s";</script>' % response['Location']
+            script = u'<script>$.colorbox.close(); window.location="{0}";</script>'.format(response['Location'])
+            return HttpResponse(script)
+        elif response.status_code != 200:
+            return HttpResponse(status_code=response.status_code)
+        else:
+            return response
+    return wrapper
+
+
+def popup_reload(view_func):
+    """manage redirection : reopen in a new coorbox."""
+    def wrapper(request, *args, **kwargs):
+        try:
+            response = view_func(request, *args, **kwargs)
+        except Http404:
+            return HttpResponseNotFound()
+        except PermissionDenied:
+            return HttpResponseForbidden()
+        except Exception, msg:
+            logger.exception(u"exception in popup: {0}".format(msg))
+            raise
+        if response.status_code == 302:
+            script = u'reload: {0}'.format(response['Location'])
             return HttpResponse(script)
         elif response.status_code != 200:
             return HttpResponse(status_code=response.status_code)
@@ -41,9 +63,3 @@ def popup_close(view_func):
             response = HttpResponse(script)
         return response
     return wrapper
-
-
-class HttpResponseClosePopup(HttpResponse):
-    """A HttpResponse that can be returned in a 'popup_close' decorated view for closing the colorbox"""
-    def __init__(self):
-        super(HttpResponseClosePopup, self).__init__("close_popup")

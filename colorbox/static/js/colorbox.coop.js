@@ -1,9 +1,23 @@
 $(function() {
-    
+    var reloadRegex = /reload: (.*)$/;
+
     var _process_form_result = function(html, options) {
+
+
         if (html.match(/^<script>.*<\/script>$/)) {
             $('body').append(html);
-        } else if (html === 'close_popup') {
+        } else if (html.match(reloadRegex)) {
+            var url = html.match(reloadRegex)[1];
+            $.colorbox({
+                top: 0,
+                href : url,
+                title : '...',
+                onComplete : function(){
+                    _colorboxify_form(options);
+                }
+            });
+        }
+        else if (html === 'close_popup') {
             $.colorbox.close();
         } else if (options && options.hasOwnProperty(html)) {
             options[html].call(this);
@@ -12,7 +26,7 @@ $(function() {
                 top: 0,
                 html:html,
                 title : '...',
-                onComplete : _colorboxify_form,
+                onComplete : _colorboxify_form
             }); 
         }
     }
@@ -37,7 +51,7 @@ $(function() {
             });
             return false;
         });
-    }
+    };
     
     $.fn.colorboxSubmit = function(options) {
         $(this).ajaxSubmit({
