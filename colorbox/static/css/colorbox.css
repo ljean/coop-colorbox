@@ -90,3 +90,7 @@
 #cboxClose {
 	border: none;
 }
+
+#colorbox {
+    color: #000 !important;
+}
