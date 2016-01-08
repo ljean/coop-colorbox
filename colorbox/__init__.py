@@ -8,3 +8,6 @@ def get_version():
 
 
 __version__ = get_version()
+
+
+default_app_config = 'colorbox.apps.ColorboxAppConfig'
