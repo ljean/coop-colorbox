@@ -29,7 +29,7 @@ $(function() {
                 onComplete : _colorboxify_form
             }); 
         }
-    }
+    };
     
     var _colorboxify_form = function(options) {
         $("form.colorbox-form").ajaxForm({
@@ -37,7 +37,7 @@ $(function() {
                 _process_form_result(html, options);
             }
         });    
-    }
+    };
     
     $.fn.colorboxify = function(options) {
         $(document).on('click', "a.colorbox-form", function () {

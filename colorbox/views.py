@@ -44,7 +44,6 @@ class AdminPopupRedirectView(PopupRedirectView):
     """Popup for admin"""
     staff_only = True
     
-    #@method_decorator(popup_redirect)
     def dispatch(self, *args, **kwargs):
         """check permission and don't redirect"""
         if self.staff_only:
