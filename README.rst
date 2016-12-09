@@ -5,9 +5,8 @@ coop-colorbox, make easy to use jquery.colorbox in a django app
 Install
 =======
 
-```
-pip install apidev_coop-colorbox
-```
+
+     pip install apidev_coop-colorbox
 
 
 Settings
