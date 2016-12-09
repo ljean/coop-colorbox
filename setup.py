@@ -15,7 +15,7 @@ VERSION = __import__('colorbox').__version__
 setup(
     name='apidev-coop_colorbox',
     version=VERSION,
-    description='Manage lightboxes within coop-cms',
+    description='Manage colorbox popup for django',
     long_description=open('README.rst').read(),
     packages=['colorbox'],
     include_package_data=True,
@@ -26,7 +26,7 @@ setup(
     download_url="https://github.com/ljean/coop-colorbox/tarball/master",
     zip_safe=False,
     classifiers=[
-        'Development Status :: 4 - Beta',
+        'Development Status :: 5 - Production',
         'Environment :: Web Environment',
         'Intended Audience :: Developers',
         'License :: OSI Approved :: BSD License',
