@@ -26,7 +26,7 @@ setup(
     download_url="https://github.com/ljean/coop-colorbox/tarball/master",
     zip_safe=False,
     classifiers=[
-        'Development Status :: 5 - Production',
+        'Development Status :: 5 - Production/Stable',
         'Environment :: Web Environment',
         'Intended Audience :: Developers',
         'License :: OSI Approved :: BSD License',
