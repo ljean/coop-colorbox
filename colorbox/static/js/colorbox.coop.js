@@ -10,6 +10,7 @@ $(function() {
             var url = html.match(reloadRegex)[1];
             $.colorbox({
                 top: 0,
+                trapFocus: false,
                 href : url,
                 title : '...',
                 onComplete : function(){
@@ -24,6 +25,7 @@ $(function() {
         } else {
             $.colorbox({
                 top: 0,
+                trapFocus: false,
                 html:html,
                 title : '...',
                 onComplete : _colorboxify_form
@@ -43,6 +45,7 @@ $(function() {
         $(document).on('click', "a.colorbox-form", function () {
             $.colorbox({
                 top: 0,
+                trapFocus: false,
                 href : $(this).attr('href'),
                 title : '...',  
                 onComplete : function(){
