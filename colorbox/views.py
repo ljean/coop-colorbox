@@ -43,10 +43,3 @@ class PopupRedirectView(FormView):
 class AdminPopupRedirectView(PopupRedirectView):
     """Popup for admin"""
     staff_only = True
-    
-    def dispatch(self, *args, **kwargs):
-        """check permission and don't redirect"""
-        if self.staff_only:
-            if not self.request.user.is_staff:
-                raise PermissionDenied()
-        return super(AdminPopupRedirectView, self).dispatch(*args, **kwargs)
