@@ -73,6 +73,19 @@ $(function() {
             return false;
         });
     };
+
+     $.fn.showColorbox = function(href, options) {
+          $.colorbox({
+              maxWidth: '90%',
+              top: 0,
+              trapFocus: false,
+              href: href,
+              title: '...',
+              onComplete: function () {
+                _colorboxify_form(options);
+              }
+          });
+     };
     
     $.fn.colorboxSubmit = function(options) {
         $(this).ajaxSubmit({
