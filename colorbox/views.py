@@ -68,8 +68,6 @@ class ConfirmFormView(PopupRedirectView):
     def form_valid(self, form):
         """on form valid"""
 
-        print form.data
-
         if form.is_confirmed():
             response = self.form_confirmed()
             if response:
