@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 """decorator for managing colorbox"""
 
+from __future__ import unicode_literals
+
 import logging
 
 from django.http import HttpResponse, HttpResponseNotFound, Http404, HttpResponseForbidden
@@ -19,10 +21,10 @@ def popup_redirect(view_func):
         except PermissionDenied:
             return HttpResponseForbidden()    
         except Exception as msg:
-            logger.exception(u"exception in popup: {0}".format(msg))
+            logger.exception("exception in popup: {0}".format(msg))
             raise
         if response.status_code == 302:
-            script = u'<script>$.colorbox.close(); window.location="{0}";</script>'.format(response['Location'])
+            script = '<script>$.colorbox.close(); window.location="{0}";</script>'.format(response['Location'])
             return HttpResponse(script)
         elif response.status_code != 200:
             return HttpResponse(status=response.status_code)
@@ -41,10 +43,10 @@ def popup_reload(view_func):
         except PermissionDenied:
             return HttpResponseForbidden()
         except Exception as msg:
-            logger.exception(u"exception in popup: {0}".format(msg))
+            logger.exception("exception in popup: {0}".format(msg))
             raise
         if response.status_code == 302:
-            script = u'reload: {0}'.format(response['Location'])
+            script = 'reload: {0}'.format(response['Location'])
             return HttpResponse(script)
         elif response.status_code != 200:
             return HttpResponse(status=response.status_code)

@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 
+from __future__ import unicode_literals
+
 from django.http import HttpResponse
 
 
@@ -12,12 +14,12 @@ class HttpResponseClosePopup(HttpResponse):
 class HttpResponseReloadPopup(HttpResponse):
     """A HttpResponse with the right content for loading the view in a new colorbox"""
     def __init__(self, url):
-        super(HttpResponseReloadPopup, self).__init__(u'reload: {0}'.format(url))
+        super(HttpResponseReloadPopup, self).__init__('reload: {0}'.format(url))
 
 
 class HttpResponseRedirectPopup(HttpResponse):
     """A HttpResponse with the right content for closing the popup and go to a different page"""
     def __init__(self, url):
         super(HttpResponseRedirectPopup, self).__init__(
-            u'<script>$.colorbox.close(); window.location="{0}";</script>'.format(url)
+            '<script>$.colorbox.close(); window.location="{0}";</script>'.format(url)
         )

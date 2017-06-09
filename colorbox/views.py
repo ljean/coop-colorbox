@@ -1,11 +1,14 @@
 # -*- coding: utf-8 -*-
 """some reusable views: inherit from them"""
 
+from __future__ import unicode_literals
+
 from django.views.generic.edit import FormView
-from decorators import popup_redirect
+
 from django.utils.decorators import method_decorator
 from django.core.exceptions import PermissionDenied
 
+from .decorators import popup_redirect
 from .forms import ConfirmForm
 from .http import HttpResponseClosePopup
 
