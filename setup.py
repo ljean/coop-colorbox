@@ -19,7 +19,7 @@ setup(
     version=VERSION,
     description='Manage colorbox popup for django',
     long_description=open('README.rst').read(),
-    packages=['colorbox'],
+    packages=find_packages(),
     include_package_data=True,
     author='Luc Jean',
     author_email='ljean@apidev.fr',
