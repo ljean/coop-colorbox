@@ -94,3 +94,9 @@
 #colorbox {
     color: #000 !important;
 }
+
+#cboxTitle {
+    line-height: 18px;
+    height: 18px;
+    overflow-x: hidden;
+}
