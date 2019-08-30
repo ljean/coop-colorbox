@@ -1,26 +1,28 @@
 coop-colorbox, make easy to use jquery.colorbox in a django app
-===============================================
+===============================================================
 
 
 Install
 =======
 
+pip::
 
      pip install apidev_coop-colorbox
 
 
 Settings
-=======
+========
+
+In settings.py::
 
     INSTALLED_APPS = (
         '...',
         'colorbox',
     )
 
-
 Views
-=======
-
+=====
+views::
 
      from django.utils.decorators import method_decorator
      from django.http import HttpResponseRedirect, Http404
@@ -45,19 +47,20 @@ Views
              return HttpResponseRedirect(reverse(’next_step'))
 
 form_popup_template
-=======
+===================
+template::
 
      {% extends "colorbox/popup_form_base.html" %}
      {% load i18n %}
      {% block title %}{% trans "Edit" %}{% endblock %}
      {% block form_url %}{% url 'my_view' %}{% endblock %}
 
-
 You can also overrides or extends `{% block form_intro %}` {% block form_fields %}` `{% block popup_buttons %}`
 or `{% block extra_head %}`
 
 main template
-=======
+=============
+template::
 
      {% load static i18n %}
      <script type="text/javascript" charset="utf-8" src="{% static 'js/jquery.colorbox-min.js' %}"></script>
@@ -74,10 +77,12 @@ main template
 
 
 In tests
-=======
+========
+tests::
 
      from colorbox.utils import assert_popup_redirects
      assert_popup_redirects(response, reverse('my_view'))
+
 
 License
 =======
